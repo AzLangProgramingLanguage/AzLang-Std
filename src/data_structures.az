@@ -1,6 +1,9 @@
 
-@external("printlib.so", "printValue")
+@external("../build/printlib.so", "printValue")
 funksiya print(sabit hərşey val): heçnə
+
+@external("../build/inputlib.so","inputValue")
+funksiya input(sabit yazı val):  yazı
 
 
 
