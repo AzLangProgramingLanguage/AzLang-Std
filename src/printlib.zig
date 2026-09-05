@@ -1,19 +1,8 @@
 const std = @import("std");
 
-const ValueTag = enum(u8) {
-    void = 0,
-    int = 1,
-    float = 2,
-    string = 3,
-    bool = 4,
-};
+const ValueTag = enum(u8) { void = 0, int = 1, float = 2, string = 3, bool = 4, list = 5 };
 
-const ValueData = extern union {
-    int: i64,
-    float: f64,
-    string: [*:0]const u8,
-    bool: u8,
-};
+const ValueData = extern union { int: i64, float: f64, string: [*:0]const u8, bool: u8, list: [*:0]const ValueData };
 
 const ValueType = extern struct {
     tag: ValueTag,
@@ -33,5 +22,6 @@ pub export fn printValue(v: *const ValueType) void {
                 std.debug.print("yanlış\n", .{});
             }
         },
+        .list => std.debug.print("[{any}]", .{v.data.list}),
     }
 }

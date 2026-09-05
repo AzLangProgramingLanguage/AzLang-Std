@@ -1,9 +1,12 @@
-
-@external("../build/printlib.so", "printValue")
-funksiya print(sabit hərşey val): heçnə
-
+/*
 @external("../build/inputlib.so","inputValue")
-funksiya input(sabit yazı val):  yazı
+func input(sabit yazı val):  yazı
+
+sabit ədəd a = 1
+*/
+@external("../build/printlib.so", "printValue")
+func print(const any val): void
 
 
+print(2)
 
