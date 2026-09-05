@@ -1,0 +1,5 @@
+@link(\"../../write.o\")
+func write(const int fd,const str val,const int size): void
+
+@link(\"../../exit.o\")
+func exit(const int val): void
