@@ -9,9 +9,9 @@ echo "==> Compiling Zig files to shared libraries..."
 
 for asmfile in "$SRC_DIR"/*.s; do
   [ -f "$asmfile" ] || continue
-  name=$(basename "$asmfile" .zig)
-  echo "    compiling $asmfile -> $BUILD_DIR/$name.so"
-  as "$name" -o $asmfile.o
+  name=$(basename "$asmfile" .s)
+  echo "    compiling $asmfile -> $BUILD_DIR/$name.o"
+  as "$asmfile" -o $BUILD_DIR/$name.o
 done
 
 echo "==> Done. Libraries in $BUILD_DIR/"
