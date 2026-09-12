@@ -1,17 +1,32 @@
 
-
-@link("/home/prestgg/projects/AzLang/sdk/build/exit.o")
-func exit(const int val): void
-
-
 enum FD
     Stdin
     Stdout
     Stderr
 
-@link("/home/prestgg/projects/AzLang/sdk/build/write.o")
+enum FLAG
+    ReadOnly
+    Write
+
+enum FMODE
+    NoCreate
+    Create
+
+
+
+@link("./sdk/build/exit.o")
+func exit(const int val): void
+
+
+@link("./sdk/build/write.o")
 func write(FD fd,const str val,const int size): void
 
+@link("./sdk/build/fopen.o")
+func fopen(const str val, FLAG flag, FMODE mode): void
+
+/* fopen("/etc/os-release",ReadOnly, NoCreate) */
+if 1==1
+    write(Stdout,"Hello",5)
 write(Stdout,"╭────────────────────────╮\n",79)
 write(Stdout,"│ AzFetch                │\n",31)
 write(Stdout,"├────────────────────────┤\n",79)

@@ -4,5 +4,4 @@
 
 exit:
     mov rax, 60      
-    mov rdi, rdi    
     syscall
