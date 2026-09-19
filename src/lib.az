@@ -20,9 +20,8 @@ op exit(const int val): void
 op write(FD fd,const str val,const int size): void
 
 @link("./sdk/build/fopen.o")
-op fopen(const str val, FLAG flag, FMODE mode): void
+op fopen(const str val, FLAG flag, FMODE mode): File
 
-fopen("/etc/os-release",ReadOnly, NoCreate)
+@link("./sdk/build/read.o")
+op read(File file, const int size): str
 
-if 1==1
-    write(Stdout,"Hello World",11)
