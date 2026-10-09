@@ -1,4 +1,3 @@
-
 enum FD
     Stdin
     Stdout
@@ -12,16 +11,12 @@ enum FMODE
     NoCreate
     Create
 
-@link("./sdk/build/exit.o")
+@link("./sdk/src/exit.s")
 op exit(const int val): void
 
 
-@link("./sdk/build/write.o")
+@link("./sdk/src/write.s")
 op write(FD fd,const str val,const int size): void
 
-@link("./sdk/build/fopen.o")
+@link("./sdk/src/fopen.s")
 op fopen(const str val, FLAG flag, FMODE mode): File
-
-@link("./sdk/build/read.o")
-op read(File file, const int size): str
-
