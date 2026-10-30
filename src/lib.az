@@ -11,12 +11,6 @@ enum FMODE
     NoCreate
     Create
 
-@link("./sdk/src/exit.s")
 op exit(const int val): void
+    inline_asm `mov rax, 60\nmov rdi,{val}\nsyscall`
 
-
-@link("./sdk/src/write.s")
-op write(FD fd,const str val,const int size): void
-
-@link("./sdk/src/fopen.s")
-op fopen(const str val, FLAG flag, FMODE mode): File
